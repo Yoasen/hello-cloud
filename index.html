@@ -2,12 +2,145 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>云计算实验2</title>
+    <style>
+        /* 全局重置与基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* 深色科技感背景 */
+            background-color: #050914;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(0, 240, 255, 0.08), transparent 40%),
+                radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.08), transparent 40%);
+            color: #c9d1d9;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* 网格背景特效 */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+        }
+
+        /* 科技感主卡片 */
+        .card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 16px;
+            padding: 50px 60px;
+            text-align: center;
+            box-shadow: 
+                0 0 20px rgba(0, 240, 255, 0.15),
+                inset 0 0 20px rgba(0, 240, 255, 0.05);
+            animation: pulse 4s infinite alternate;
+        }
+
+        /* 霓虹光效动画 */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px rgba(0, 240, 255, 0.1), inset 0 0 20px rgba(0, 240, 255, 0.05); }
+            100% { box-shadow: 0 0 40px rgba(0, 240, 255, 0.3), inset 0 0 30px rgba(0, 240, 255, 0.1); }
+        }
+
+        /* 渐变发光标题 */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #00f2fe, #4facfe, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        /* 副标题 */
+        .subtitle {
+            font-size: 1.1rem;
+            color: #8b949e;
+            margin-bottom: 35px;
+            letter-spacing: 1px;
+        }
+
+        /* 终端风格的信息展示区 */
+        .terminal {
+            background: rgba(0, 0, 0, 0.5);
+            border-left: 3px solid #00f2fe;
+            border-radius: 8px;
+            padding: 20px 25px;
+            text-align: left;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1rem;
+            color: #00f2fe;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .terminal p {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 终端命令行提示符 */
+        .prompt {
+            color: #a855f7;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        /* 闪烁的光标 */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.2rem;
+            background-color: #00f2fe;
+            animation: blink 1s step-end infinite;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* 手机端适配 */
+        @media (max-width: 600px) {
+            .card { padding: 30px 20px; }
+            h1 { font-size: 1.8rem; }
+            .terminal { font-size: 0.9rem; }
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello, Cloud Computing!</h1>
-    <p>这是我的第一个云环境 Web 页面。</p>
-    <p>实验人：姓名</p>
-    <p>学号：学号</p>
+
+    <div class="card">
+        <h1>Hello, Cloud Computing!</h1>
+        <p class="subtitle">// 这是我的第一个云环境 Web 页面</p>
+        
+        <div class="terminal">
+            <p><span class="prompt">></span> 实验人：云计算</p>
+            <p><span class="prompt">></span> 学号：学号</p>
+            <p><span class="prompt">></span> 状态：部署成功 <span class="cursor"></span></p>
+        </div>
+    </div>
+
 </body>
 </html>
